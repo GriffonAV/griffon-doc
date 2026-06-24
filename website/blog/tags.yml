@@ -1,0 +1,14 @@
+tech:
+  label: Tech
+  permalink: /tech
+  description: report on a technical part of the project like a technology shift
+
+orga:
+  label: Organisation
+  permalink: /organisation
+  description: report on the organisation of the GriffonAV project
+
+devlog:
+  label: Devlog
+  permalink: /devlog
+  description: report on development progress and milestones
