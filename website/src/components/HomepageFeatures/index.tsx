@@ -5,48 +5,47 @@ import styles from "./styles.module.css";
 
 type FeatureItem = {
   title: string;
-  // Svg: React.ComponentType<React.ComponentProps<"svg">>;
   Img: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
-  // {
-  //   title: "Griffon",
-  //   // Svg: require("@site/static/img/undraw_docusaurus_mountain.svg").default,
-  //   Img: require("@site/static/img/rust.png").default,
-  //   description: (
-  //     <>
-  //       Griffon is a school project aimed at developing an modular tools for
-  //       linux security focusing on the analysis of malware and suspicious files.
-  //       It is designed to be easy to use, with a simple and intuitive interface
-  //       that allows users to quickly analyze files and identify potential
-  //       threats.
-  //     </>
-  //   ),
-  // },
   {
-    title: "Powered by Rust",
+    title: "Driven by Passion for Rust & Linux",
     Img: require("@site/static/img/rust.png").default,
     description: (
       <>
-        Griffon AV is built using Rust, a modern systems programming language
-        known for its performance, safety, and concurrency. This ensures that
-        our autonomous vehicle solutions are both reliable and efficient.
+        We are a team of Four students who love Rust and the Linux ecosystem.
+        Griffon is our journey to build a complete, real-world application from the
+        ground up, allowing us to deeply understand system architecture, memory safety,
+        and backend-to-frontend communication.
       </>
     ),
   },
   {
-    title: "Research Oriented and Transparent Project",
+    title: "Modular Daemon & Auto-GUI",
+    // Tip: You might want to add a plugin/gear icon to your static/img folder for this one!
+    Img: require("@site/static/img/app.png").default,
+    description: (
+      <>
+        Griffon runs as a background daemon powering a seamless plugin system.
+        You focus on writing the core logic in Rust, and we automatically generate
+        the GUI with minimal configuration. We currently feature two native plugins:
+        a high-speed <b>Malware Scanner</b> and a <b>System Cleaner</b>.
+      </>
+    ),
+  },
+  {
+    title: "Open Research & Transparent Process",
     Img: require("@site/static/img/notion.png").default,
     description: (
       <>
-        All our organization's research is open source and transparent. We are
-        committed to making our research accessible to everyone. You can find
-        our notion page{" "}
+        All our work is public! We are very proud to present this project, and while
+        it is far from perfect, we would absolutely love your feedback. You can explore
+        our entire work process, architecture decisions, and research on our{" "}
         <a href="https://blue-touch-18c.notion.site/Griffon-AV-1c6f05587c8380eb9fbeea36f549fd47?pvs=74">
-          here
-        </a>
+          public Notion board
+        </a>.
       </>
     ),
   },
@@ -56,9 +55,7 @@ function Feature({ title, Img, description }: FeatureItem) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
-        <img src={Img} className={styles.featureImg} alt={title} />{" "}
-        {/* Use img tag */}
-        {/* <Svg className={styles.featureSvg} role="img" /> */}
+        <img src={Img} className={styles.featureImg} alt={title} />
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>

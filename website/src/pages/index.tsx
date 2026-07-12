@@ -18,7 +18,7 @@ function HeroBanner() {
       <div className={styles.heroInner}>
         <Heading as="h1" className={styles.heroProjectTagline}>
           <img
-            alt={translate({ message: "Docusaurus with Keytar" })}
+            alt={translate({ message: "Griffon logo" })}
             className={styles.heroLogo}
             src={useBaseUrl("/img/logo.png")}
             width="200"
@@ -31,19 +31,29 @@ function HeroBanner() {
               __html: translate({
                 id: "homepage.hero.title",
                 message:
-                  "A <b>Fast, modular, and secure</b> security engine for Linux, Writen in <b>Rust</b>",
+                  "A modular Linux security toolkit featuring a high-speed <b>Malware Scanner</b> and a <b>System Cleaner</b>.",
                 description:
                   "Home page hero title, can contain simple html tags",
               }),
             }}
           />
         </Heading>
+
+        {/* New Subtitle directing them to learn more */}
+        <p style={{ fontSize: "1.25rem", margin: "1rem 0 2rem 0", opacity: 0.9 }}>
+          Built with passion in Rust. Discover how our plugins work under the hood.
+        </p>
+
+        {/* Updated Call to Action Buttons */}
         <div className={styles.indexCtas}>
-          <Link className="button button--primary" to="/docs/intro">
-            <Translate>Get Started</Translate>
+          <Link className="button button--primary button--lg" to="/docs/introduction">
+            <Translate>Learn More in Docs</Translate>
           </Link>
-          <Link className="button button--info" to="/docs/intro">
-            <Translate>Try a Demo</Translate>
+          <Link className="button button--secondary button--lg" to="/docs/installation">
+            <Translate>Install v0.3</Translate>
+          </Link>
+          <Link className="button button--info button--lg" to="https://github.com/GriffonAV/GriffonAV/releases/latest">
+            <Translate>GitHub Packages</Translate>
           </Link>
           <span className={styles.indexCtasGitHubButtonWrapper}>
             <iframe
@@ -88,17 +98,16 @@ function TopBannerForRelease() {
 }
 
 function TopBanner() {
-  // TODO We should be able to strongly type customFields
-  //  Refactor to use a CustomFields interface + TS declaration merging
-  const announcedVersion = useDocusaurusContext().siteConfig.customFields
-    ?.announcedVersion as string;
-
   return (
     <div className={styles.topBanner}>
       <div className={styles.topBannerTitle}>
-        {"\xa0🚧\xa0"}
-        Work in Progress
-        {"\xa0🚧\xa0"}
+        {"🎉\xa0"}
+        <Link to="/docs/installation" className={styles.topBannerTitleText}>
+          <Translate id="homepage.banner.v03">
+            Griffon v0.3 is out!
+          </Translate>
+        </Link>
+        {"\xa0🎉"}
       </div>
     </div>
   );

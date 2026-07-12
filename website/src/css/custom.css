@@ -1,30 +1,65 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* src/css/custom.css */
 
-/* You can override the default Infima variables here. */
+/* ==========================================
+   1. DOCUSAURUS LIGHT MODE (Mapped from shadcn)
+   Primary Base: rgb(168, 82, 214) / #a852d6
+   ========================================== */
 :root {
-    --ifm-color-primary: #5c469c;
-    --ifm-color-primary-dark: #29784c;
-    --ifm-color-primary-darker: #277148;
-    --ifm-color-primary-darkest: #205d3b;
-    --ifm-color-primary-light: #33925d;
-    --ifm-color-primary-lighter: #359962;
-    --ifm-color-primary-lightest: #3cad6e;
-    --ifm-code-font-size: 95%;
-    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --ifm-color-primary: #a852d6;
+    --ifm-color-primary-dark: #974abf;
+    --ifm-color-primary-darker: #8f46b4;
+    --ifm-color-primary-darkest: #763a94;
+    --ifm-color-primary-light: #b163da;
+    --ifm-color-primary-lighter: #b56cdf;
+    --ifm-color-primary-lightest: #c487e6;
+
+    /* Match shadcn border radius */
+    --ifm-global-radius: 1rem;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme="dark"] {
-    --ifm-color-primary: #d4adfc;
-    --ifm-color-primary-dark: #21af90;
-    --ifm-color-primary-darker: #1fa588;
-    --ifm-color-primary-darkest: #1a8870;
-    --ifm-color-primary-light: #29d5b0;
-    --ifm-color-primary-lighter: #32d8b4;
-    --ifm-color-primary-lightest: #4fddbf;
-    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+/* ==========================================
+   2. DOCUSAURUS DARK MODE (Mapped from shadcn)
+   Primary Base: rgb(121, 44, 162) / #792ca2
+   ========================================== */
+[data-theme='dark'] {
+    --ifm-color-primary: #792ca2;
+    --ifm-color-primary-dark: #6d2892;
+    --ifm-color-primary-darker: #672589;
+    --ifm-color-primary-darkest: #551f71;
+    --ifm-color-primary-light: #8636b0;
+    --ifm-color-primary-lighter: #8c3db4;
+    --ifm-color-primary-lightest: #a057c2;
+
+    /* Match shadcn dark background (oklch 0.2050 0 0 -> ~#1a1a1a) */
+    --ifm-background-color: #1a1a1a;
+    --ifm-background-surface-color: #242424;
+    /* Card background */
+    --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   3. YOUR EXISTING SHADCN SETTINGS BUTTON
+   ========================================== */
+.settings-doc-button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 16px;
+    border-radius: var(--ifm-global-radius);
+    /* Use the matched radius */
+    background-color: var(--ifm-color-primary);
+    /* Use your primary color instead of default blue */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.settings-doc-button:hover {
+    background-color: var(--ifm-color-primary-dark);
+    color: white;
+    text-decoration: none;
+}
+
+.settings-doc-button:active {
+    transform: scale(0.98);
 }

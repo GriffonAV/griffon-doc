@@ -80,14 +80,24 @@ const config: Config = {
             },
             items: [
                 {
-                    type: "docSidebar",
-                    sidebarId: "tutorialSidebar",
+                    to: "/docs/installation", // Standard link instead of type: "doc"
                     position: "left",
-                    label: "Tutorial",
+                    label: "Install Griffon",
+                    activeBaseRegex: "^/docs/installation",
                 },
-                { to: "/blog", label: "Blog", position: "left" },
                 {
-                    href: "https://github.com/GriffonAV/GriffonAV",
+                    to: "/docs/introduction",
+                    position: "left",
+                    label: "Docs",
+                    activeBaseRegex: "^/docs/introduction",
+                },
+                {
+                    to: "/blog",
+                    label: "Blog",
+                    position: "left"
+                },
+                {
+                    href: "https://github.com/GriffonAV/griffon",
                     label: "GitHub",
                     position: "right",
                 },
@@ -112,10 +122,10 @@ const config: Config = {
                         //     label: "Stack Overflow",
                         //     href: "https://stackoverflow.com/questions/tagged/docusaurus",
                         // },
-                        {
-                            label: "Discord",
-                            href: "https://discordapp.com/invite/docusaurus",
-                        },
+                        // {
+                        //     label: "Discord",
+                        //     href: "https://discordapp.com/invite/docusaurus",
+                        // },
                         // {
                         //     label: "X",
                         //     href: "https://x.com/docusaurus",
