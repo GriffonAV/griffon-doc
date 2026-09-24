@@ -118,18 +118,10 @@ const config: Config = {
                 {
                     title: "Community",
                     items: [
-                        // {
-                        //     label: "Stack Overflow",
-                        //     href: "https://stackoverflow.com/questions/tagged/docusaurus",
-                        // },
-                        // {
-                        //     label: "Discord",
-                        //     href: "https://discordapp.com/invite/docusaurus",
-                        // },
-                        // {
-                        //     label: "X",
-                        //     href: "https://x.com/docusaurus",
-                        // },
+                        {
+                            label: "Discord",
+                            href: "https://discord.gg/2mP5bBC7HZ",
+                        },
                     ],
                 },
                 {
