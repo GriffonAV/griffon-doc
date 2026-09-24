@@ -14,7 +14,9 @@ Download the latest packages directly from our [GitHub Releases page](https://gi
 
 | Version | Status | Description |
 | :--- | :--- | :--- |
-| **v0.3 (Latest)** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
+| **v0.3.2 (Latest)** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
+| **v0.3.1** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
+| **v0.3** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
 | **v0.2-alpha** | Beta | Initial proof-of-concept with monolithic design. |
 
 ---

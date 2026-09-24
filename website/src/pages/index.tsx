@@ -50,7 +50,7 @@ function HeroBanner() {
             <Translate>Learn More in Docs</Translate>
           </Link>
           <Link className="button button--secondary button--lg" to="/docs/installation">
-            <Translate>Install v0.3</Translate>
+            <Translate>Install v0.3.2 </Translate>
           </Link>
           <Link className="button button--info button--lg" to="https://github.com/GriffonAV/GriffonAV/releases/latest">
             <Translate>GitHub Packages</Translate>
@@ -104,7 +104,7 @@ function TopBanner() {
         {"🎉\xa0"}
         <Link to="/docs/installation" className={styles.topBannerTitleText}>
           <Translate id="homepage.banner.v03">
-            Griffon v0.3 is out!
+            Griffon v0.3.2 is out!
           </Translate>
         </Link>
         {"\xa0🎉"}
