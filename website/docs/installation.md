@@ -10,14 +10,11 @@ You can download the pre-compiled packages directly from our GitHub repository o
 
 ## Available Releases
 
-Download the latest packages directly from our [GitHub Releases page](https://github.com/GriffonAV/Griffon/releases).
+import ReleaseTable from '@site/src/components/ReleaseTable';
 
-| Version | Status | Description |
-| :--- | :--- | :--- |
-| **v0.3.2 (Latest)** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
-| **v0.3.1** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
-| **v0.3** | Beta | Modular daemon, auto-generated GUI, Malware Scanner & System Cleaner plugins. |
-| **v0.2-alpha** | Beta | Initial proof-of-concept with monolithic design. |
+Download the packages from the [GitHub Releases page](https://github.com/GriffonAV/griffon/releases). Each release lists its changes.
+
+<ReleaseTable />
 
 ---
 
@@ -45,8 +42,8 @@ Clone the repository to your local machine and use the following commands to set
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/GriffonAV/GriffonAV.git](https://github.com/GriffonAV/Griffon.git)
-cd Griffon
+git clone https://github.com/GriffonAV/griffon.git
+cd griffon
 
 # 2. Install GUI dependencies
 just setup-gui

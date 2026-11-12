@@ -8,10 +8,12 @@ import Heading from "@theme/Heading";
 import Head from "@docusaurus/Head";
 import Translate, { translate } from "@docusaurus/Translate";
 import useBaseUrl, { useBaseUrlUtils } from "@docusaurus/useBaseUrl";
+import { RELEASES_URL, useReleases } from "@site/src/hooks/useReleases";
 import styles from "./styles.module.css";
 
 function HeroBanner() {
   const { siteConfig } = useDocusaurusContext();
+  const { latest } = useReleases();
 
   return (
     <div className={styles.hero} data-theme="dark">
@@ -50,15 +52,15 @@ function HeroBanner() {
             <Translate>Learn More in Docs</Translate>
           </Link>
           <Link className="button button--secondary button--lg" to="/docs/installation">
-            <Translate>Install v0.3.2 </Translate>
+            {latest ? `Install ${latest.tag}` : <Translate>Install</Translate>}
           </Link>
-          <Link className="button button--info button--lg" to="https://github.com/GriffonAV/GriffonAV/releases/latest">
+          <Link className="button button--info button--lg" to={`${RELEASES_URL}/latest`}>
             <Translate>GitHub Packages</Translate>
           </Link>
           <span className={styles.indexCtasGitHubButtonWrapper}>
             <iframe
               className={styles.indexCtasGitHubButton}
-              src="https://ghbtns.com/github-btn.html?user=GriffonAV&repo=GriffonAV&type=star&count=true&size=large"
+              src="https://ghbtns.com/github-btn.html?user=GriffonAV&repo=griffon&type=star&count=true&size=large"
               width={160}
               height={30}
               title="GitHub Stars"
@@ -98,13 +100,21 @@ function TopBannerForRelease() {
 }
 
 function TopBanner() {
+  const { latest } = useReleases();
+  if (!latest) {
+    return null;
+  }
+
   return (
     <div className={styles.topBanner}>
       <div className={styles.topBannerTitle}>
         {"🎉\xa0"}
         <Link to="/docs/installation" className={styles.topBannerTitleText}>
-          <Translate id="homepage.banner.v03">
-            Griffon v0.3.2 is out!
+          <Translate
+            id="homepage.banner.latestRelease"
+            values={{ version: latest.tag }}
+          >
+            {"Griffon {version} is out!"}
           </Translate>
         </Link>
         {"\xa0🎉"}
