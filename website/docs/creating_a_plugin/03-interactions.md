@@ -82,7 +82,7 @@ from = "store.settings"              # store value sent as the JSON payload
 fn = "scan"                          # must match a function name your library registers
 ```
 
-- `fn` is the function name — this must be one of the functions your Rust library's `init()` reports as available (see the [Rust Backend](./04-rust-backend.md) page), and must be handled inside `handle_message()`.
+- `fn` is the function name — this must be a method registered on your plugin's `PluginRouter` with `.method("<name>", ...)` (see the [Rust Backend](./04-rust-backend.md) page).
 - `from` (optional) is the store path whose value is serialized to JSON and sent as the payload. If omitted, no payload is sent.
 - `key` is where the JSON response is written back into the store.
 - `returnType = "json"` tells Griffon to parse the response as JSON before storing it (rather than storing the raw string).
