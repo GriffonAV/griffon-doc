@@ -41,11 +41,11 @@ Understanding this loop is the key to understanding how a Griffon plugin works: 
 - **`[store]`** in the manifest — the plugin's local state: default settings, results, selections, error/status messages. This is the single source of truth the UI reads from.
 - **`[ui]`** in the manifest — the actual layout: sections, tabs, and nested UI elements (buttons, checkboxes, tables, inputs, etc.), each optionally bound to the store and/or emitting an action.
 - **`[[interactions]]`** in the manifest — the glue: for each action emitted by the UI, a list of steps to run (update the store, call a Rust function, log a value, ...).
-- **The Rust library (`.so`)** — implements `init()` (returns plugin metadata + the list of callable functions) and `handle_message()` (a single entry point that receives `"fn:<name> <json>"` and dispatches to the right handler, returning JSON).
+- **The Rust library (`.so`)** — plain Rust functions registered with the plugin SDK (`plugin_sdk`). The SDK's `export_plugin!` macro generates the exported entry points (`init()` and `handle_message()`) that report your metadata and route each call to the right function.
 
 The next pages go through each piece in detail:
 
 - **[The UI Manifest & Store](./02-ui-manifest.md)** — how to declare state and lay out your UI.
 - **[Interactions](/docs/creating_a_plugin/03-interactions.md)** — how to wire UI actions to store updates and Rust function calls.
-- **[The Rust Backend](./04-rust-backend.md)** — how to implement `init()` and `handle_message()`.
+- **[The Rust Backend](./04-rust-backend.md)** — how to write your functions with the plugin SDK.
 - **[Packaging & Loading](./05-packaging.md)** — how to zip everything up and load it into Griffon.

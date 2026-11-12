@@ -20,8 +20,8 @@ This produces your compiled `.so` (e.g. `target/release/libmy_plugin.so`).
 
 Before packaging, make sure:
 
-- The `uuid` in `[plugin]` (your `.toml`) matches the `UUID` your library returns from `init()`.
-- Every `fn = "..."` used in an `[[interactions.steps]]` block in the manifest is also handled in your library's `handle_message()`, and is listed in the `function` entry returned by `init()`.
+- The `uuid` in `[plugin]` (your `.toml`) matches `meta.uuid` in your `export_plugin!` call.
+- Every `fn = "..."` used in an `[[interactions.steps]]` block in the manifest is registered on your `PluginRouter` with `.method(...)`.
 - Every `tab` referenced by a `[[ui.sections]]` block exists in `[plugin].tabs`.
 
 Mismatches here won't necessarily fail to load — they tend to fail silently at the point a user clicks the affected button, so it's worth double-checking manually until we have tooling to validate this automatically.
@@ -45,9 +45,9 @@ From the Griffon settings menu, load the `.zip` archive. Griffon will:
 ## Checklist
 
 - [ ] `Cargo.toml` has `crate-type = ["cdylib"]`
-- [ ] `init()` returns real metadata, including a `UUID` matching the manifest's `uuid`
-- [ ] `init()`'s `function` list matches exactly what `handle_message()` handles
-- [ ] `handle_message()` returns valid JSON (or an `ERR ...` string) for every supported function
+- [ ] `export_plugin!` has real metadata, with a `uuid` matching the manifest's `uuid`
+- [ ] Every manifest `fn = "..."` has a matching `.method(...)` on the router
+- [ ] Each function has a unit test using `PluginRouter::call_json`
 - [ ] Manifest's `tabs` cover every `tab` used by a section
 - [ ] Every `fn = "..."` in an interaction step matches a function your library implements
 - [ ] `cargo build --release` succeeds and produces a `.so`

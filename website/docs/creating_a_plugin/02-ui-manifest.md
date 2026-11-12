@@ -119,11 +119,13 @@ Nesting follows the tree literally: a `children` array under an element becomes 
 | `file_select_button` | Opens a native file/folder picker (`accept_directory` toggles file vs folder) |
 | `table` | Renders rows from a store array (`from`, `columns`) and emits an action on row selection |
 
+This is a summary. The renderer also supports `switch`, `tabs`, `badge`, `progress`, `card`, `group`, `divider` and `file_select`. See the **[Component Reference](./06-component-reference.md)** for every type, its fields and the event it emits.
+
 Some plugins define their own richer, plugin-specific widgets (for example a table with built-in severity styling) — these behave like `table` but are tailored to that plugin's data shape. Stick to the generic types above unless you have a specific need.
 
 ### Binding to the store
 
-Any `name` (or similar text field) can interpolate a store value with `{{store.<path>}}`:
+The `name` of a `text` element can interpolate a store value with `{{store.<path>}}`. Other fields and other element types don't resolve templates.
 
 ```toml
 [[ui.sections.contents]]
