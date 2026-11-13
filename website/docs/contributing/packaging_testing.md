@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 title: Testing the packages
 description: Checking the .deb and .rpm packages, automatically in CI and by hand in a VM before a release.
 ---

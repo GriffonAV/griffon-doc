@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 4
 title: Testing
 description: How Griffon is tested, how to run the tests, and the rules every change must follow.
 ---
