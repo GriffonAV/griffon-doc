@@ -19,7 +19,7 @@ a VM. Do the VM test before tagging a release.
 ## Supported systems
 
 A binary only runs on systems whose glibc is at least as new as the one it was
-built against. `Dockerfile.build` therefore compiles everything on
+built against. `packaging/Dockerfile` therefore compiles everything on
 **Ubuntu 22.04** (glibc 2.35), which makes the packages work on
 Ubuntu 22.04+, Debian 12+ and Fedora 36+. CI checks Ubuntu 22.04/24.04,
 Debian 12/13 and Fedora.
@@ -36,7 +36,7 @@ is too new.
 From the root of the [griffon repository](https://github.com/GriffonAV/griffon):
 
 ```bash
-docker build -t griffon-builder -f Dockerfile.build .
+docker build -t griffon-builder -f packaging/Dockerfile .
 docker run --rm -e VERSION=0.0.0 -v "$(pwd)/dist:/out" griffon-builder
 ls dist/   # griffon-0.0.0.deb, griffon-0.0.0.rpm
 ```
@@ -95,6 +95,8 @@ vagrant destroy -f               # delete the VM
 Users must be in the `griffon` group to talk to the daemon. The release notes
 must say:
 
-> After installing, log out and back in (or run `newgrp griffon`). If you
-> installed without `sudo` (e.g. as root), add your user manually:
-> `sudo usermod -aG griffon $USER`.
+> After installing, restart your computer. Logging out and back in is often
+> not enough, because the desktop session keeps its old groups (see
+> [#258](https://github.com/GriffonAV/griffon/issues/258)). If you installed
+> without `sudo` (e.g. as root), add your user manually:
+> `sudo usermod -aG griffon $USER`, then restart.
