@@ -55,7 +55,8 @@ Check generated code and dependencies for provenance and license compatibility;
 AI output does not waive the project's contribution license requirements.
 
 Test destructive behavior only with disposable data in an isolated environment.
-Report suspected vulnerabilities privately according to [SECURITY.md](SECURITY.md);
+Report suspected vulnerabilities privately according to
+[Griffon's security policy](https://github.com/GriffonAV/griffon/blob/main/SECURITY.md);
 do not automatically turn an audit result into a public issue.
 
 ## Community
@@ -63,12 +64,15 @@ do not automatically turn an audit result into a public issue.
 Communicate in your own judgment and take responsibility for messages you post.
 Do not let an agent impersonate contributors or automatically send communications
 on their behalf. Respect people's decisions to use or avoid AI; harassment and
-pressure are covered by our [Code of Conduct](CODE_OF_CONDUCT.md).
+pressure are covered by our
+[Code of Conduct](https://github.com/GriffonAV/griffon/blob/main/CODE_OF_CONDUCT.md).
 
 ## Related guidance
 
-[AGENTS.md](AGENTS.md) describes agent workflows, while
-[CONTRIBUTING.md](CONTRIBUTING.md) applies to every contribution.
+[AGENTS.md](https://github.com/GriffonAV/griffon/blob/main/AGENTS.md) describes
+agent workflows, while
+[CONTRIBUTING.md](https://github.com/GriffonAV/griffon/blob/main/CONTRIBUTING.md)
+applies to every contribution.
 
 Inspired by [Bevy's AI policy](https://bevy.org/learn/contribute/policies/ai/).
 Griffon's policy permits human-reviewed AI-assisted code and prose and does not
