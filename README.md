@@ -1,28 +1,67 @@
-# Griffon — Modular Antivirus for Linux (Rust)
-> A fast, modular, and secure antivirus engine for Linux, written in Rust and powered by YARA. And open source.
+# GriffonAV Documentation
 
----> [Installation and documentation](https://griffon-av.vercel.app/) <---
+This repository contains the source for the [GriffonAV documentation website](https://griffon-av.vercel.app/). It documents how to install and use GriffonAV, how the project works, how to contribute, and how to use its extensions.
 
+The GriffonAV application itself is maintained in the [GriffonAV/griffon](https://github.com/GriffonAV/griffon) repository.
 
-<p align="center">
-  <img width="250" height="250" src="logo.png" alt='Griffon logo'>
-</p>
+## Website structure
 
-## Key features
+The website is built with [Docusaurus](https://docusaurus.io/) and lives in [`website`](./website):
 
-- **Modular Architecture** - plug-and-play analysis modules and highly customizable engine.
-- **Rust Performance** - memory-safe, fast, concurrent scanning
-- **YARA Integration** - pattern-based detection support
-- **Modern Application** - desktop application powered by [tauri](https://v2.tauri.app/fr/)
+- `website/docs` — user and developer documentation
+- `website/extensions` — extension documentation, published as a separate website section
+- `website/blog` — project articles and updates
+- `website/src` — React components, pages, hooks, and styling
+- `website/static` — images and other static assets
+- `website/docusaurus.config.ts` — website and navigation configuration
+- `website/sidebars.ts` — main documentation sidebar
+- `website/extensions-sidebars.ts` — extensions sidebar
 
+Files that are no longer published but are kept for reference live in [`archived`](./archived).
 
+## Local development
 
-## Documentation
+The website requires Node.js 18 or newer.
 
-- **User docs:** [griffon-av.vercel.app](https://griffon-av.vercel.app/)
-- **Developer docs:** [`/docs`](./docs)
-- **Internal wiki:** [GitHub Wiki](https://github.com/GriffonAV/GriffonAV/wiki)
+```bash
+cd website
+npm install
+npm start
+```
 
+The development server reloads when content or source files change.
+
+## Validation and production build
+
+Run the type checker and production build before submitting changes:
+
+```bash
+cd website
+npm run typecheck
+npm run build
+```
+
+The build treats broken links as errors. Generated static files are written to `website/build`.
+
+## Release information
+
+A custom Docusaurus plugin retrieves public releases from [GriffonAV/griffon](https://github.com/GriffonAV/griffon/releases) during the build. This powers the latest-release banner and installation links.
+
+Set `GITHUB_TOKEN` in the build environment to avoid GitHub's anonymous API rate limit. If the API is unavailable, the build continues without release data and the website falls back to its regular GitHub links.
+
+## Deployment
+
+The production website is hosted on Vercel:
+
+**[griffon-av.vercel.app](https://griffon-av.vercel.app/)**
+
+The Docusaurus production URL and root base path are configured in `website/docusaurus.config.ts`.
+
+## Contributing
+
+Documentation improvements are welcome. Keep content in the appropriate section and verify that both the type check and production build pass before opening a pull request.
+
+For changes to the antivirus application rather than its documentation, contribute to [GriffonAV/griffon](https://github.com/GriffonAV/griffon).
 
 ## Authors
 
@@ -59,6 +98,4 @@
 
 ## License
 
-Licensed under the [Apache License 2.0](LICENSE).
-
-You may freely use, modify, and distribute this project under the terms of this license.
+See [LICENSE](./LICENSE) for this repository's license terms.
