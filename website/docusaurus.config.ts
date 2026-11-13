@@ -5,6 +5,7 @@ import githubReleasesPlugin from "./plugins/github-releases";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+
 const config: Config = {
     title: "Griffon",
     tagline: "GriffonAV - Linux Antivirus",
@@ -15,16 +16,9 @@ const config: Config = {
         v4: true, // Improve compatibility with the upcoming Docusaurus v4
     },
 
-    // Set the production url of your site here
-    url: "https://your-docusaurus-site.example.com",
-    // Set the /<baseUrl>/ pathname under which your site is served
-    // For GitHub pages deployment, it is often '/<projectName>/'
+    url: "https://griffon-av.vercel.app",
     baseUrl: "/",
 
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: "Griffon-org", // Usually your GitHub org/user name.
-    projectName: "GriffonAV", // Usually your repo name.
 
     onBrokenLinks: "throw",
     onBrokenMarkdownLinks: "warn",
@@ -37,7 +31,19 @@ const config: Config = {
         locales: ["en"],
     },
 
-    plugins: [githubReleasesPlugin],
+    plugins: [
+        githubReleasesPlugin,
+        [
+            "@docusaurus/plugin-content-docs",
+            {
+                id: "extensions",
+                path: "extensions",
+                routeBasePath: "extensions",
+                sidebarPath: "./extensions-sidebars.ts",
+                editUrl: "https://github.com/GriffonAV/griffon-doc/edit/main/website/",
+            },
+        ],
+    ],
 
     presets: [
         [
@@ -45,10 +51,7 @@ const config: Config = {
             {
                 docs: {
                     sidebarPath: "./sidebars.ts",
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+                    editUrl: "https://github.com/GriffonAV/griffon-doc/edit/main/website/",
                 },
                 blog: {
                     showReadingTime: true,
@@ -56,11 +59,7 @@ const config: Config = {
                         type: ["rss", "atom"],
                         xslt: true,
                     },
-                    // Please change this to your repo.
-                    // Remove this to remove the "edit this page" links.
-                    editUrl:
-                        "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-                    // Useful options to enforce blogging best practices
+                    editUrl: "https://github.com/GriffonAV/griffon-doc/edit/main/website/",
                     onInlineTags: "warn",
                     onInlineAuthors: "warn",
                     onUntruncatedBlogPosts: "warn",
@@ -73,8 +72,7 @@ const config: Config = {
     ],
 
     themeConfig: {
-        // Replace with your project's social card
-        image: "img/docusaurus-social-card.jpg",
+        image: "img/griffon.png",
         navbar: {
             title: "Griffon",
             logo: {
@@ -95,6 +93,12 @@ const config: Config = {
                     activeBaseRegex: "^/docs/introduction",
                 },
                 {
+                    to: "/extensions",
+                    position: "left",
+                    label: "Extensions",
+                    activeBaseRegex: "^/extensions",
+                },
+                {
                     to: "/blog",
                     label: "Blog",
                     position: "left"
@@ -113,7 +117,7 @@ const config: Config = {
                     title: "Docs",
                     items: [
                         {
-                            label: "Tutorial",
+                            label: "Introduction",
                             to: "/docs/introduction",
                         },
                     ],
@@ -141,7 +145,7 @@ const config: Config = {
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} Griffon, Inc. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} GriffonAV. Built with Docusaurus.`,
         },
         prism: {
             theme: prismThemes.github,

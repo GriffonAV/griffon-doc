@@ -1,0 +1,8 @@
+{
+  "label": "Nmap",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about the Nmap extension and how to use it."
+  }
+}
